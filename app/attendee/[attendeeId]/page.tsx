@@ -1,3 +1,5 @@
+import UpcomingAppointments from "./UpcomingAppointments";
+
 async function getUser({ attendeeId }: { attendeeId: string }) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/attendees/${attendeeId}`
@@ -24,6 +26,7 @@ export default async function Page({
   return (
     <>
       <h1 className="text-xl font-semibold text-gray-900">Hello, {name}!</h1>
+      <UpcomingAppointments userId={attendeeId} />
     </>
   );
 }
