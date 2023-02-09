@@ -4,6 +4,8 @@ import Actions from "app/Actions";
 import UserName from "app/UserName";
 import { format, parseISO } from "date-fns";
 
+import Availability from "./Availability";
+
 async function fetchData({ userId }: { userId: number }) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/organizers/${userId}?_embed=timeslots`
@@ -47,6 +49,8 @@ export default async function Page({
         <br />
         Add your availability:
       </h1>
+
+      <Availability organizerId={organizerId} />
 
       <div className="mt-12">
         <h2 className="font-semibold text-gray-900">Available timeslots</h2>
